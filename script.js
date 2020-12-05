@@ -21,11 +21,11 @@ function removeLoadingSpinner() {
 // Fetch quote from api
 async function getQuote() {
     showLoadingSpinner();
-    // const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // For localhost
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // For localhost
     const url = "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
 
     try {
-         const response = await fetch(url);
+         const response = await fetch(proxyUrl + url);
          const data = await response.json();
 
         //  If author of quote is blank, set author name to "Unknown"
